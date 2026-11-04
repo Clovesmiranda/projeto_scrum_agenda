@@ -1,0 +1,568 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beleza & Estilo - Agendamentos</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo-container">
+        <div class="logo-icon">✂</div>
+        <div class="logo-text">
+          <h1>Beleza & Estilo</h1>
+          <p>Gestão de Salão (Sprint 4 - LGPD & Realtime)</p>
+        </div>
+      </div>
+      <div class="auth-buttons">
+        <button class="btn-login">➜] Entrar</button>
+        <button class="btn-register">+ Criar Conta</button>
+      </div>
+    </header>
+
+    <nav class="tabs">
+      <a href="agendamentos.html" class="tab-item active">📅 Agendamentos</a>
+      <a href="catalogo.html" class="tab-item">📋 Catálogo de Serviços</a>
+      <a href="clientes.html" class="tab-item">👥 Gestão de Clientes (Recepção)</a>
+      <a href="meus-dados.html" class="tab-item">🔒 Meus Dados (LGPD)</a>
+    </nav>
+
+    <main class="grid-2">
+      <section class="card">
+        <h2>📅 Novo Agendamento</h2>
+        <br>
+        <form>
+          <div class="form-group">
+            <label>Cliente</label>
+            <input type="text" placeholder="Seu Nome / Nome do Cliente">
+          </div>
+          <div class="form-group">
+            <label>Serviço</label>
+            <select>
+              <option>Corte feminino - R$ 120,00</option>
+              <option>Manicure - R$ 50,00</option>
+              <option>Corte Masculino - R$ 65,00</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <div class="form-group" style="flex: 1;">
+              <label>Data</label>
+              <input type="date" value="2026-11-03">
+            </div>
+            <div class="form-group" style="flex: 1;">
+              <label>Horário</label>
+              <select><option>14:00</option><option>15:00</option></select>
+            </div>
+          </div>
+          <button type="submit" class="btn-primary">✓ Confirmar Agendamento</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+          <h2>📋 Agenda da Recepção</h2>
+          <span style="font-size: 11px; color: var(--accent-green);">⚡ Sincronização em tempo real ativada (&lt; 5s)</span>
+        </div>
+        <div class="empty-state">
+          Nenhum agendamento pendente no momento.
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Beleza & Estilo - Catálogo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo-container">
+        <div class="logo-icon">✂</div>
+        <div class="logo-text">
+          <h1>Beleza & Estilo</h1>
+          <p>Gestão de Salão (Sprint 3 - Cloud Sync)</p>
+        </div>
+      </div>
+      <div class="auth-buttons">
+        <button class="btn-login">➜] Entrar</button>
+        <button class="btn-register">+ Criar Conta</button>
+      </div>
+    </header>
+
+    <nav class="tabs">
+      <a href="agendamentos.html" class="tab-item">📅 Agendamentos</a>
+      <a href="catalogo.html" class="tab-item active">📋 Catálogo de Serviços</a>
+      <a href="clientes.html" class="tab-item">👥 Gestão de Clientes</a>
+    </nav>
+
+    <main class="card">
+      <h2>📚 Serviços Disponíveis</h2>
+      <div class="cards-grid">
+        <div class="service-card">
+          <div class="service-header">
+            <h3>Corte feminino</h3>
+            <span class="price">R$ 120.00</span>
+          </div>
+          <p class="service-desc">Corte e finalização feminina</p>
+          <span class="service-time">⏱ 60 minutos</span>
+        </div>
+
+        <div class="service-card">
+          <div class="service-header">
+            <h3>Manicure</h3>
+            <span class="price">R$ 50.00</span>
+          </div>
+          <p class="service-desc">Cuidado completo das unhas das mãos</p>
+          <span class="service-time">⏱ 45 minutos</span>
+        </div>
+
+        <div class="service-card">
+          <div class="service-header">
+            <h3>Pedicure</h3>
+            <span class="price">R$ 60.00</span>
+          </div>
+          <p class="service-desc">Cuidado completo das unhas dos pés</p>
+          <span class="service-time">⏱ 45 minutos</span>
+        </div>
+
+        <div class="service-card">
+          <div class="service-header">
+            <h3>Coloração</h3>
+            <span class="price">R$ 200.00</span>
+          </div>
+          <p class="service-desc">Tintura e coloração capilar</p>
+          <span class="service-time">⏱ 90 minutos</span>
+        </div>
+
+        <div class="service-card">
+          <div class="service-header">
+            <h3>Escova Modeladora</h3>
+            <span class="price">R$ 80.00</span>
+          </div>
+          <p class="service-desc">Modelagem e secagem capilar</p>
+          <span class="service-time">⏱ 40 minutos</span>
+        </div>
+
+        <div class="service-card">
+          <div class="service-header">
+            <h3>Corte Masculino</h3>
+            <span class="price">R$ 65.00</span>
+          </div>
+          <p class="service-desc">Corte e acabamento masculino</p>
+          <span class="service-time">⏱ 45 minutos</span>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beleza & Estilo - Gestão de Clientes</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo-container">
+        <div class="logo-icon">✂</div>
+        <div class="logo-text">
+          <h1>Beleza & Estilo</h1>
+          <p>Painel da Recepção</p>
+        </div>
+      </div>
+    </header>
+
+    <nav class="tabs">
+      <a href="agendamentos.html" class="tab-item">📅 Agendamentos</a>
+      <a href="catalogo.html" class="tab-item">📋 Catálogo de Serviços</a>
+      <a href="clientes.html" class="tab-item active">👥 Gestão de Clientes (Recepção)</a>
+      <a href="meus-dados.html" class="tab-item">🔒 Meus Dados (LGPD)</a>
+    </nav>
+
+    <!-- US11: Identificação Balcão vs Conta -->
+    <main class="card">
+      <h2>📇 Diretório de Clientes</h2>
+      <p style="color: var(--text-secondary); font-size: 12px; margin: 10px 0 20px 0;">
+        Identificação de vínculo de conta por e-mail (US11)
+      </p>
+
+      <div class="table-row table-header">
+        <span>NOME COMPLETO</span>
+        <span>E-MAIL</span>
+        <span>TIPO DE CADASTRO</span>
+        <span>AÇÕES</span>
+      </div>
+
+      <div class="table-row">
+        <span>Maria Silva</span>
+        <span>maria.silva@email.com</span>
+        <span><span class="badge badge-linked">Conta Vinculada</span></span>
+        <button class="btn-register">Histórico</button>
+      </div>
+
+      <div class="table-row">
+        <span>Ana Souza</span>
+        <span>ana.balcao@email.com</span>
+        <span><span class="badge badge-balcao">Apenas Balcão</span></span>
+        <button class="btn-register">Vincular Conta</button>
+      </div>
+    </main>
+
+    <!-- US12: Pedidos Pendentes de Exclusão LGPD -->
+    <section class="card">
+      <h2 style="color: var(--accent-red);">🗑️ Pedidos Pendentes de Exclusão (LGPD)</h2>
+      <br>
+      <div class="table-row table-header">
+        <span>SOLICITANTE</span>
+        <span>DATA DO PEDIDO</span>
+        <span>STATUS</span>
+        <span>AÇÃO DA RECEPÇÃO</span>
+      </div>
+      <div class="table-row">
+        <span>Carla Dias (carla@email.com)</span>
+        <span>02/11/2026</span>
+        <span style="color: var(--accent-yellow);">Pendente</span>
+        <button class="btn-danger">Confirmar Exclusão</button>
+      </div>
+    </section>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beleza & Estilo - Meus Dados (LGPD)</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo-container">
+        <div class="logo-icon">✂</div>
+        <div class="logo-text">
+          <h1>Beleza & Estilo</h1>
+          <p>Área do Cliente</p>
+        </div>
+      </div>
+    </header>
+
+    <nav class="tabs">
+      <a href="agendamentos.html" class="tab-item">📅 Agendamentos</a>
+      <a href="catalogo.html" class="tab-item">📋 Catálogo de Serviços</a>
+      <a href="clientes.html" class="tab-item">👥 Gestão de Clientes (Recepção)</a>
+      <a href="meus-dados.html" class="tab-item active">🔒 Meus Dados (LGPD)</a>
+    </nav>
+
+    <main class="card" style="max-width: 600px; margin: 0 auto;">
+      <h2>🔒 Meus Dados Pessoais</h2>
+      <p style="color: var(--text-secondary); font-size: 13px; margin-top: 5px;">
+        Gerencie suas informações e sua privacidade de acordo com a LGPD.
+      </p>
+      <br>
+
+      <form>
+        <div class="form-group">
+          <label>Nome Completo</label>
+          <input type="text" value="Maria Silva">
+        </div>
+        <div class="form-group">
+          <label>E-mail Cadastrado</label>
+          <input type="email" value="maria.silva@email.com">
+        </div>
+        <div class="form-group">
+          <label>Telefone</label>
+          <input type="text" value="(71) 99999-8888">
+        </div>
+
+        <div class="checkbox-lgpd">
+          <input type="checkbox" id="consent" checked style="width: auto;">
+          <label for="consent">Concordo com o uso dos meus dados para agendamentos no salão.</label>
+        </div>
+
+        <button type="button" class="btn-primary" style="margin-bottom: 20px;">Salvar Alterações</button>
+      </form>
+
+      <hr style="border-color: var(--border-color); margin: 20px 0;">
+
+      <div style="background-color: rgba(239, 68, 68, 0.1); padding: 16px; border-radius: 8px; border: 1px solid var(--accent-red);">
+        <h3 style="color: var(--accent-red); font-size: 14px;">Solicitar Exclusão de Conta</h3>
+        <p style="color: var(--text-secondary); font-size: 12px; margin: 8px 0 12px 0;">
+          Ao solicitar a exclusão, seu nome, telefone e e-mail serão removidos permanentemente. O histórico de cortes permanecerá anônimo.
+        </p>
+        <button class="btn-danger">Solicitar Exclusão dos Meus Dados</button>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
+
+
+
+:root {
+  --bg-dark: #0d0f1d;
+  --card-bg: #161a2e;
+  --input-bg: #1d2238;
+  --border-color: #272d47;
+  --text-primary: #ffffff;
+  --text-secondary: #8b94b2;
+  --accent-purple: #5b50f6;
+  --accent-green: #22c55e;
+  --accent-red: #ef4444;
+  --accent-yellow: #f59e0b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+}
+
+header {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-icon {
+  background-color: var(--accent-purple);
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.logo-text h1 { font-size: 18px; font-weight: 600; }
+.logo-text p { font-size: 12px; color: var(--text-secondary); }
+
+.auth-buttons { display: flex; gap: 10px; }
+.btn-login { background-color: var(--accent-purple); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; }
+.btn-register { background-color: #272d47; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; }
+
+nav.tabs {
+  display: flex;
+  gap: 10px;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 20px;
+  overflow-x: auto;
+}
+
+.tab-item {
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 10px 15px;
+  font-size: 14px;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+}
+
+.tab-item.active {
+  color: var(--accent-purple);
+  border-bottom: 2px solid var(--accent-purple);
+  font-weight: 600;
+}
+
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 20px;
+}
+
+.form-group { margin-bottom: 16px; }
+.form-group label { display: block; font-size: 11px; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 6px; }
+
+input, select, textarea {
+  width: 100%;
+  background-color: var(--input-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 10px 14px;
+  border-radius: 6px;
+  outline: none;
+}
+
+.btn-primary { width: 100%; background-color: var(--accent-purple); color: white; border: none; padding: 12px; border-radius: 6px; font-weight: 600; cursor: pointer; }
+.btn-danger { background-color: var(--accent-red); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: 600; }
+
+.grid-2 { display: grid; grid-template-columns: 1fr 2fr; gap: 20px; }
+.form-row { display: flex; gap: 10px; }
+.empty-state { text-align: center; color: var(--text-secondary); padding: 40px 0; font-size: 14px; }
+
+/* Badges e Status */
+.badge { padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+.badge-linked { background-color: rgba(34, 197, 94, 0.2); color: var(--accent-green); }
+.badge-balcao { background-color: rgba(245, 158, 11, 0.2); color: var(--accent-yellow); }
+
+/* Tabela e Alertas LGPD */
+.table-row { display: grid; grid-template-columns: 2fr 2fr 2fr 1fr; padding: 12px 0; border-bottom: 1px solid var(--border-color); font-size: 13px; align-items: center; }
+.table-header { color: var(--text-secondary); font-size: 11px; text-transform: uppercase; font-weight: 600; }
+.checkbox-lgpd { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--text-secondary); margin: 15px 0; }
+
+/* US13: Suporte a Celular (360px+) */
+@media (max-width: 768px) {
+  body { padding: 10px; }
+  .grid-2 { grid-template-columns: 1fr; }
+  .form-row { flex-direction: column; }
+  .table-row { grid-template-columns: 1fr; gap: 8px; padding: 16px 0; }
+}
+
+
+
+// As tuas chaves do Supabase já configuradas
+const SUPABASE_URL = 'https://txrkdqzpjtjbaapuiujt.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_eHq1sKKH9BRwGYC_1tV2JQ_hJ3_OOq5';
+
+// Carrega o SDK do Supabase automaticamente no navegador
+const scriptSupabase = document.createElement('script');
+scriptSupabase.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';
+document.head.appendChild(scriptSupabase);
+
+scriptSupabase.onload = () => {
+  const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+ 
+  supabase
+    .channel('schema-db-changes')
+    .on(
+      'postgres_changes',
+      { event: 'INSERT', schema: 'public', table: 'agendamentos' },
+      () => {
+        carregarAgenda(supabase);
+      }
+    )
+    .subscribe();
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const formAgendamento = document.querySelector('form');
+    
+    if (formAgendamento && window.location.pathname.includes('agendamentos.html')) {
+      formAgendamento.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const inputs = formAgendamento.querySelectorAll('input, select, textarea');
+        const novoAgendamento = {
+          cliente: inputs[0].value,
+          servico: inputs[1].value,
+          data: inputs[2].value,
+          horario: inputs[3].value
+        };
+
+        if (!novoAgendamento.cliente) {
+          alert('Preenche o nome do cliente!');
+          return;
+        }
+
+      
+        const { error } = await supabase.from('agendamentos').insert([novoAgendamento]);
+
+        if (error) {
+          alert('Erro ao agendar: ' + error.message);
+        } else {
+          alert('Agendamento realizado com sucesso!');
+          formAgendamento.reset();
+        }
+      });
+
+      carregarAgenda(supabase);
+    }
+  });
+};
+
+async function carregarAgenda(supabase) {
+  const containerAgenda = document.querySelector('.grid-2 section:last-child');
+  if (!containerAgenda) return;
+
+  const { data: agendamentos, error } = await supabase
+    .from('agendamentos')
+    .select('*')
+    .order('id', { ascending: false });
+
+  if (error || !agendamentos || agendamentos.length === 0) {
+    containerAgenda.innerHTML = `
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h2>📋 Agenda da Recepção</h2>
+        <span style="font-size: 11px; color: var(--accent-green);">⚡ Nuvem Realtime Ativa</span>
+      </div>
+      <div class="empty-state">Nenhum agendamento encontrado.</div>
+    `;
+    return;
+  }
+
+  let html = `
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+      <h2>📋 Agenda da Recepção (${agendamentos.length})</h2>
+      <span style="font-size: 11px; color: var(--accent-green);">⚡ Nuvem Realtime Ativa</span>
+    </div>
+  `;
+
+  agendamentos.forEach((item) => {
+    html += `
+      <div style="background: var(--input-bg); padding: 12px; border-radius: 8px; margin-bottom: 10px; border: 1px solid var(--border-color);">
+        <strong>${item.cliente}</strong> - ${item.servico}<br>
+        <small style="color: var(--text-secondary);">📅 ${item.data} às ${item.horario}</small>
+      </div>
+    `;
+  });
+
+  containerAgenda.innerHTML = html;
+}
