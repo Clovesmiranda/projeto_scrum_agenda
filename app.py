@@ -126,7 +126,7 @@ def listar_profissionais():
 
 @app.post("/agendamentos")
 def cadastrar_agendamento():
-    dados = request.json
+    dados = request.form
     servico_id = dados["servico_id"]
     profissional_id = dados["profissional_id"]
     data = dados["data"]

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Criar Agendamento</title>
+    <style>
+        body {
+            background: #f2f2f2;
+            font-family: Arial;
+            padding: 40px;
+        }
+        form {
+            width: 400px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0px 0px 10px #ccc;
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+        }
+        button {
+            margin-top: 20px;
+            width: 100%;
+            padding: 12px;
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h2 style="text-align:center;">Criar Agendamento</h2>
+
+    <form action="/agendamentos" method="post">
+
+        <label>Serviço</label>
+        <select name="servico_id" required>
+            <option value="">Selecione...</option>
+            {% for s in servicos %}
+                <option value="{{ s['id'] }}">{{ s['nome'] }}</option>
+            {% endfor %}
+        </select>
+
+        <label>Profissional</label>
+        <select name="profissional_id" required>
+            <option value="">Selecione...</option>
+            {% for p in profissionais %}
+                <option value="{{ p['id'] }}">{{ p['nome'] }}</option>
+            {% endfor %}
+        </select>
+
+        <label>Data</label>
+        <input type="date" name="data" required>
+
+        <label>Horário</label>
+        <input type="time" name="horario" required>
+
+        <button type="submit">Salvar</button>
+    </form>
+
+</body>
+</html>
