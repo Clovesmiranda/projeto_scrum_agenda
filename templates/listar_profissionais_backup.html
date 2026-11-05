@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Listar Profissionais</title>
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            font-family: Arial, sans-serif;
+            color: white;
+            padding: 40px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+
+        th {
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        tr:nth-child(even) {
+            background: rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Lista de Profissionais</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Especialidade</th>
+            </tr>
+        </thead>
+        <tbody id="tabela-profissionais"></tbody>
+    </table>
+
+    <script>
+        fetch("/profissionais")
+            .then(res => res.json())
+            .then(profissionais => {
+                const tabela = document.getElementById("tabela-profissionais");
+
+                profissionais.forEach(p => {
+                    tabela.innerHTML += `
+                        <tr>
+                            <td>${p.id}</td>
+                            <td>${p.nome}</td>
+                            <td>${p.especialidade}</td>
+                        </tr>
+                    `;
+                });
+            });
+    </script>
+</body>
+</html>
