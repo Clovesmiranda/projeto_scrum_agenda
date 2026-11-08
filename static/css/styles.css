@@ -19,7 +19,12 @@
 .form-page .box {
     margin: auto;
 }
-
+.form-page .box {
+    width: 450px;
+    background: #161a2e;
+    padding: 40px;
+    border-radius: 12px;
+}
 .login-page .box {
 
 margin: auto;
