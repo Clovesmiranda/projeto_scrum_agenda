@@ -1,5 +1,6 @@
 import sqlite3
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, render_template, redirect
+
 
 app = Flask(__name__)
 
@@ -142,7 +143,7 @@ def cadastrar_agendamento():
     novo_id = cursor.lastrowid
     conn.close()
 
-    return jsonify({"mensagem": "Agendamento cadastrado!", "id": novo_id})
+    return redirect("/agendamentos")
 
 @app.get("/agendamentos_api")
 def listar_agendamentos_api():
@@ -157,4 +158,5 @@ def home():
     return render_template("dashboard.html")
 
 
-app.run(port=3000)
+if __name__ == '__main__':
+    app.run(port=3000)
