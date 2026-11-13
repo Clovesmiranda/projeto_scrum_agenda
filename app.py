@@ -83,7 +83,7 @@ def listar_agendamentos_html():
 # API SERVIÇOS
 
 @app.post("/servicos")
-def cadastrar_servico():
+def salvar_servico_api():
     dados = request.get_json(silent=True) or request.form
     conn = get_db()
     cursor = conn.execute(
