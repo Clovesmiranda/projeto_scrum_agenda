@@ -104,7 +104,7 @@ def alterar_servico(id):
 
 @app.post("/profissionais")
 def cadastrar_profissional():
-    dados = request.json
+    dados = request.get_json(silent=True) or request.form
     conn = get_db()
     cursor = conn.execute(
         "INSERT INTO profissionais (nome, especialidade) VALUES (?, ?)",
@@ -113,7 +113,9 @@ def cadastrar_profissional():
     conn.commit()
     novo_id = cursor.lastrowid
     conn.close()
-    return jsonify({"mensagem": "Profissional cadastrado!", "id": novo_id})
+    if request.is_json:
+        return jsonify({"mensagem": "Profissional cadastrado!", "id": novo_id})
+    return redirect("/listar_profissionais")
 
 @app.get("/profissionais")
 def listar_profissionais():
