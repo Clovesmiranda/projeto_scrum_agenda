@@ -67,7 +67,7 @@ def listar_agendamentos_html():
 
 @app.post("/servicos")
 def cadastrar_servico():
-    dados = request.json
+    dados = request.get_json(silent=True) or request.form
     conn = get_db()
     cursor = conn.execute(
         "INSERT INTO servicos (nome, preco, duracao) VALUES (?, ?, ?)",
@@ -76,8 +76,10 @@ def cadastrar_servico():
     conn.commit()
     novo_id = cursor.lastrowid
     conn.close()
-    return jsonify({"mensagem": "Serviço cadastrado!", "id": novo_id})
-
+    if request.is_json:
+        return jsonify({"mensagem": "Serviço cadastrado!", "id": novo_id})
+    return redirect("/servicos")
+    
 @app.get("/servicos")
 def servicos_json():
     conn = get_db()
