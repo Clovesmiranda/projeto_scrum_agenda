@@ -74,12 +74,9 @@ def cadastrar_servico():
         (dados["nome"], dados["preco"], dados["duracao"])
     )
     conn.commit()
-    novo_id = cursor.lastrowid
     conn.close()
-    if request.is_json:
-        return jsonify({"mensagem": "Serviço cadastrado!", "id": novo_id})
-    return redirect("/servicos")
-    
+    return redirect("/dashboard")
+
 @app.get("/servicos")
 def servicos_json():
     conn = get_db()
