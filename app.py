@@ -43,9 +43,7 @@ def listar_servicos():
     return render_template("listar_servicos.html")
 
 
-@app.get("/cadastrar_servico")
-def tela_cadastrar_servico():
-    return render_template("cadastrar_servico.html")
+
 
 @app.get("/cadastrar_profissional")
 def tela_cadastrar_profissional():
