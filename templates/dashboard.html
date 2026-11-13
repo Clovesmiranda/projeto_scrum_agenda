@@ -6,13 +6,15 @@
 
     <!-- CSS NOVO -->
     <style>
-        body {
+       body {
             font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #4e73df, #1cc88a);
-            text-align: center;
-            padding: 40px;
-            color: white;
-        }
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("{{ url_for('static', filename='img/salao.jpg') }}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #fff;
+        } 
 
         h1 {
             margin-bottom: 40px;
