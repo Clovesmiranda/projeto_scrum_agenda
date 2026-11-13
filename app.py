@@ -1,5 +1,5 @@
 import sqlite3
-from flask import Flask, request, jsonify, render_template, redirect
+from flask import Flask, request, jsonify, render_template, redirect, session
 
 
 app = Flask(__name__)
@@ -15,6 +15,25 @@ def get_db():
 def tela_login():
     return render_template("login.html")
 
+@app.post("/login")
+def processar_login():
+    usuario_digitado = request.form.get("usuario")
+    senha_digitada = request.form.get("senha")
+    
+    conn = get_db()
+    usuario = conn.execute(
+        "SELECT * FROM usuarios WHERE usuario = ? AND senha = ?",
+        (usuario_digitado, senha_digitada)
+    ).fetchone()
+    conn.close()
+    
+    if usuario:
+        session['usuario_id'] = usuario['id']
+        session['usuario_nome'] = usuario['usuario']
+        session['perfil'] = usuario['perfil']  # Guarda 'gerente', 'recepcionista' ou 'cliente'
+        return redirect("/dashboard")
+    else:
+        return "Usuário ou senha incorretos. <a href='/login'>Tentar novamente</a>", 401
 @app.get("/dashboard")
 def dashboard():
     return render_template("dashboard.html")
@@ -161,3 +180,37 @@ def home():
 
 if __name__ == '__main__':
     app.run(port=3000)
+
+@app.get("/logout")
+def logout():
+    session.clear() # Limpa todos os dados da sessão (desconecta o usuário)
+    return redirect("/login")
+from functools import wraps
+
+# Função para exigir que o usuário esteja logado
+def login_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if 'usuario_id' not in session:
+            return redirect("/login")
+        return f(*args, **kwargs)
+    return decorated_function
+
+# Função para exigir perfis específicos (ex: 'gerente')
+def perfil_required(perfil_permitido):
+    def decorator(f):
+        @wraps(f)
+        def decorated_function(*args, **kwargs):
+            if 'usuario_id' not in session:
+                return redirect("/login")
+            if session.get('perfil') != perfil_permitido:
+                return "Acesso negado. Você não tem permissão para acessar esta página.", 403
+            return f(*args, **kwargs)
+        return decorated_function
+    return decorator
+
+@app.get("/cadastrar_servico")
+@perfil_required('gerente') # Só o gerente consegue acessar aqui!
+def cadastrar_servico():
+    return render_template("cadastrar_servico.html")
+    
