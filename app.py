@@ -183,7 +183,7 @@ if __name__ == '__main__':
 def logout():
     session.clear()  # Limpa todos os dados da sessão
     return redirect("/")  # Redireciona para a página inicial (dashboard ou login)
-from functools import wraps
+
 
 # Função para exigir que o usuário esteja logado
 def login_required(f):
