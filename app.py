@@ -181,8 +181,8 @@ if __name__ == '__main__':
 
 @app.get("/logout")
 def logout():
-    session.clear() # Limpa todos os dados da sessão (desconecta o usuário)
-    return redirect("/login")
+    session.clear()  # Limpa todos os dados da sessão
+    return redirect("/")  # Redireciona para a página inicial (dashboard ou login)
 from functools import wraps
 
 # Função para exigir que o usuário esteja logado
