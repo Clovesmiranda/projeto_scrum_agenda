@@ -4,11 +4,21 @@ from functools import wraps
 
 
 app = Flask(__name__)
+app.secret_key = "chave_secreta_scrum_agenda"
 
 def get_db():
     conn = sqlite3.connect("dados.db")
     conn.row_factory = sqlite3.Row
     return conn
+
+# Função para exigir que o usuário esteja logado
+def login_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if 'usuario_id' not in session:
+            return redirect("/login")
+        return f(*args, **kwargs)
+    return decorated_function
 
 # ROTAS DE PÁGINAS
 
@@ -176,24 +186,15 @@ def listar_agendamentos_api():
 def home():
     return render_template("dashboard.html")
 
-
-if __name__ == '__main__':
-    app.run(port=3000)
-
 @app.get("/logout")
 def logout():
-    session.clear()  # Limpa todos os dados da sessão
-    return redirect("/")  # Redireciona para a página inicial (dashboard ou login)
+        session.clear()
+        return redirect("/login")
+
+    if __name__ == '__main__':
+        app.run(port=3000)
 
 
-# Função para exigir que o usuário esteja logado
-def login_required(f):
-    @wraps(f)
-    def decorated_function(*args, **kwargs):
-        if 'usuario_id' not in session:
-            return redirect("/login")
-        return f(*args, **kwargs)
-    return decorated_function
 
 # Função para exigir perfis específicos (ex: 'gerente')
 def perfil_required(perfil_permitido):
