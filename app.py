@@ -211,4 +211,20 @@ def perfil_required(perfil_permitido):
 @perfil_required('gerente') # Só o gerente consegue acessar aqui!
 def cadastrar_servico():
     return render_template("cadastrar_servico.html")
-    
+
+# Bloco temporario para garantir um usuario gerente no banco
+with sqlite3.connect("dados.db") as conn:
+    conn.execute("""
+        CREATE TABLE IF NOT EXISTS usuarios (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            usuario TEXT NOT NULL,
+            senha TEXT NOT NULL,
+            perfil TEXT NOT NULL
+        )
+    """)
+    # Verifica se já tem o admin cadastrado
+    existe = conn.execute("SELECT * FROM usuarios WHERE usuario = 'admin'").fetchone()
+    if not existe:
+        conn.execute("INSERT INTO usuarios (usuario, senha, perfil) VALUES (?, ?, ?)", ("admin", "123456", "gerente"))
+        conn.commit()    
+        
